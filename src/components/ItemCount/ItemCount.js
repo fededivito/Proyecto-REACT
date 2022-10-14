@@ -1,7 +1,7 @@
 import React from "react"
 import {useState} from 'react'
-// import './ItemCount.css'
- import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ItemCount  = ({stock =5, initial=0, onAdd}) => {
 

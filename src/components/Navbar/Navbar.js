@@ -6,7 +6,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
             <Link to='/'>
-                <img className="navbar-brand" src="M3Racing-logo.webp" href="!#" />
+                <img className="navbar-brand" src="M3Racing-logo.webp" alt="M3Racing" />
                 
             </Link>
                  <div className="collapse navbar-collapse" id="navbarNav">
