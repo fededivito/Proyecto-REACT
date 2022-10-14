@@ -1,12 +1,14 @@
 import CartWidget from "../CartWidget/CartWidget";
-import './Navbar.css'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="!#"> M3Racing
-                </a>
+            <Link to='/'>
+                <img className="navbar-brand" src="M3Racing-logo.webp" href="!#" />
+                
+            </Link>
                  <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
