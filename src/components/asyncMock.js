@@ -4,6 +4,7 @@
      name: "Funda premium",
      price: 4500,
      stock: 10,
+     category: 'fundas',
      img: 'https://i.ibb.co/2k1zDdx/funda-premium.webp',
      description: 'funda premium',
      },
@@ -12,6 +13,7 @@
      name: "Funda cuero automotor",
      price: 2800,
      stock: 50,
+     category: 'fundas',
      img: 'https://i.ibb.co/qLGvB1P/funda-cuero-automotor.webp',
      description: 'funda cuero automotor',
      },
@@ -20,6 +22,7 @@
      name: "Cubre auto",
      price: 10000,
      stock: 3,
+     category: 'cobertores',
      img: 'https://i.ibb.co/2krCvmJ/cubre-auto.webp',
      description: 'funda premium',
      }

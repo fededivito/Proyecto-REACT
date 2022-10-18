@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <h1>detalle de producto</h1>
-            <ItemDetail {...products} />  
+            <ItemDetail key={productId}{...products} />  
         </>
     )
 }
