@@ -1,53 +1,49 @@
 import React from "react"
 import {useState} from 'react'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ItemCount  = ({stock =10, initial=0, onAdd}) => {
+const ItemCount  = ({stock =0, initial=1, onAdd}) => {
+    const [quantity, setQuantity] = useState (initial)
 
-    const [count, setCount] = useState (initial)
+    // const increment = () => {
+    //     if (quantity < stock) {
+    //     setQuantity (quantity+1)
+    //     }
+    // }
+
+    // const decrement = () => {
+    //     if (quantity > 1){
+    //     setQuantity (quantity - 1)
+    //     }
+    // }
 
     const increment = () => {
-        if (count < stock) {
-        setCount (count +1)
+        for (var i=0; i<5; i++) {
+        setQuantity (valorPrev => valorPrev + 1)
         }
     }
 
     const decrement = () => {
-        if (count > 0){
-        setCount (count -1)
+        if (quantity > 1){
+        setQuantity (quantity - 1)
         }
     }
 
-
     return (
-        
         <div>
-            
-                <div className="contador">
-                    <button id="addButton" className="elements" onClick={decrement}> - </button> 
-                    <h2 className="elements">{count}</h2>
-                    <button id="subsButton"  className="elements" onClick={increment}> + </button>
-                </div>
-
-                <div className="botonFinal">
-                    
-                { count > 0 ? 
-                    <button id ="cartButton" className="ui bottom attached button" onClick={() => onAdd (count)}>
-                        <FontAwesomeIcon icon="fa-sharp fa-solid fa-cart-shopping" />
-                        Agregar al Carrito
-                    </button>    
-                : 
-                    <button id ="cartButton" className="ui bottom attached button disabled" onClick={() => onAdd (count)}>
-                        <FontAwesomeIcon icon="fa-sharp fa-solid fa-cart-shopping" />
-                        Agregar al Carrito
-                    </button>
-                } 
-                </div>
-
+            <div className="contador">
+                <button id="addButton" className="elements" onClick={decrement}> - </button> 
+                <h2 className="elements">{quantity}</h2>
+                <button id="subsButton"  className="elements" onClick={increment}> + </button>
+            </div>
+            <div className="botonFinal">
+                <button id ="cartButton" className="ui bottom attached button" onClick={() => onAdd (quantity)}>
+                <FontAwesomeIcon icon="fa-sharp fa-solid fa-cart-shopping" />
+                Agregar al Carrito
+                </button>    
+            </div>
         </div>
-        
-        )
+    )
 } 
 
 export default ItemCount

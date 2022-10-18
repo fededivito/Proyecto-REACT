@@ -2,14 +2,18 @@ import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../asyncMock'
-const ItemDetail = ({ id, name, price, stock, description, img, category}) => {
-    //     const [goToCart, setGoToCart] = useState (false)
-    const handleOnAdd = (count) => {
+
+const ItemDetail = ({ id, name, price, stock, description, img, category, setCart}) => {
+
+    const handleOnAdd = (quantity) => {
         const productToAdd = {
             id,name,price,stock,category
         }
+
+    setCart(productToAdd)    
     }
 
+        
     return (
     <article> 
         <header>
@@ -22,10 +26,10 @@ const ItemDetail = ({ id, name, price, stock, description, img, category}) => {
         </picture>
         <section>
             <p>
-                Description: {description}
+                category: {category}
             </p>
             <p>
-                category: {category}
+                Description: {description}
             </p>
             <p>
                 Price: {price}
