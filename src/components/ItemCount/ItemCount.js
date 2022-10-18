@@ -3,7 +3,7 @@ import {useState} from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ItemCount  = ({stock =5, initial=0, onAdd}) => {
+const ItemCount  = ({stock =10, initial=0, onAdd}) => {
 
     const [count, setCount] = useState (initial)
 

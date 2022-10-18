@@ -1,31 +1,38 @@
-
-// import '../ItemDetail/ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import '../asyncMock'
 const ItemDetail = ({ id, name, price, stock, description, img}) => {
-    
-    const [goToCart, setGoToCart] = useState (false)
+    //     const [goToCart, setGoToCart] = useState (false)
+    const handleOnAdd = (count) => {
+        const productToAdd = {
+            id,name,price,stock
+        }
+    }
 
-        const onAdd = (count) => {
-            console.log ("Compraste", (count), "unidades");
-            setGoToCart(true);
-        }  
-    
     return (
-        <div>
-            <img src={img} alt={name} style={{width: 100}} />
-            <h2>{name}</h2>
-            <p>price: ${price}</p>
-            <p>description: {description}</p>
-            { goToCart
-                ? <Link to='/cart'>Terminar Compra</Link>
+    <article> 
+        <header>
+            <h2>
+                {name}
+            </h2>
+        </header>
+        <picture>
+            <img src={img} alt={name} />
+        </picture>
+        <section>
+            <p>
+                Description: {description}
+            </p>
+            <p>
+                Price: {price}
+            </p>
+        </section>
+        <footer>
+            <ItemCount onAdd={handleOnAdd} stock={stock}/>
+        </footer>
 
-                :<ItemCount onAdd={onAdd}/>
-            }
-        </div>
+    </article>
     )
 }
-
 export default ItemDetail
