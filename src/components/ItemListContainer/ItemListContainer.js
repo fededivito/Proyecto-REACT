@@ -7,7 +7,7 @@ const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [ loading, setLoading] = useState(true)
 
-    const {categoryId} = useParams
+    const {categoryId} = useParams()
 
     useEffect(() => {
         const asynFunction = categoryId ? getProductsByCategory : getProducts

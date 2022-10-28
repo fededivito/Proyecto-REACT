@@ -1,19 +1,18 @@
 import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import '../asyncMock'
+import { useContext} from 'react'
+import { CartContext } from '../../Context/CartContext'
 
 const ItemDetail = ({ id, name, price, stock, description, img, category, setCart}) => {
 
+    const {addItem} = useContext(CartContext)
     const handleOnAdd = (quantity) => {
         const productToAdd = {
-            id,name,price,stock,category
+            id,name,price,quantity
         }
 
-    setCart(productToAdd)    
+    addItem(productToAdd)    
     }
-
-        
+            
     return (
     <article> 
         <header>
