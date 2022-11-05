@@ -1,16 +1,10 @@
-import { text } from "@fortawesome/fontawesome-svg-core"
+
 import { useState,useEffect, createContext } from "react"
 
 export const CartContext = createContext(0)
 
 export const CartProvider = ({children}) => {
     const [cart, setCart ] = useState([])
-    // const [totalQuantity, setTotalQuantity] = useState(0)
-
-    // useEffect(() => {
-    //     const totalQty = getQuantity()
-    //     setTotalQuantity(totalQty)
-    // }, [cart])
 
     const addItem = (productToAdd) => {
         if(!isInCart(productToAdd.id)) {

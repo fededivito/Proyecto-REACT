@@ -2,15 +2,15 @@ import ItemCount from '../ItemCount/ItemCount'
 import { useContext} from 'react'
 import { CartContext } from '../../Context/CartContext'
 
-const ItemDetail = ({ id, name, price, stock, description, img, category, setCart}) => {
+const ItemDetail = ({ id, name, price, stock, description, img, category}) => {
 
-    const {addItem} = useContext(CartContext)
+    const {addItem} = useContext(CartContext) 
+
     const handleOnAdd = (quantity) => {
         const productToAdd = {
             id,name,price,quantity
         }
-
-    addItem(productToAdd)    
+    addItem(productToAdd)  
     }
             
     return (

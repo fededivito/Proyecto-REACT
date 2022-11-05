@@ -1,5 +1,4 @@
 import './App.css';
-import { useState, createContext } from 'react';
 import Navbar from './components/Navbar/Navbar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -9,6 +8,7 @@ import { CartProvider } from './Context/CartContext';
 function App() {
   return (
     <div className="App">
+    
       <CartProvider>
         <BrowserRouter>
           <Navbar />  
@@ -21,6 +21,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartProvider>  
+
     </div>
   );
 }
