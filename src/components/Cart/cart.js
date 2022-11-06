@@ -1,5 +1,5 @@
     import { useContext } from 'react'
-    import { CartContext } from '../../context/CartContext'
+    import { CartContext } from '../../Context/CartContext'
 
  const Cart = () => {
 
@@ -11,7 +11,7 @@
              {
                  cart.map(prod => (
                      <div>
-                         {prod.name} - cantiodad: {prod.quantity}
+                         {prod.name} - cantidad: {prod.quantity}
                          <button onClick={() => removeItem(prod.id)}>remover</button>
                      </div>
                  ))

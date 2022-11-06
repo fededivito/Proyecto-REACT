@@ -5,7 +5,7 @@ import { CartContext } from '../../Context/CartContext'
 
 const ItemDetail = ({ id, name, price, stock, description, img, category}) => {
 
-    const {addItem} = useContext(CartContext) 
+    const {addItem, getProductQuantity} = useContext(CartContext) 
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
@@ -13,7 +13,8 @@ const ItemDetail = ({ id, name, price, stock, description, img, category}) => {
         } 
         addItem (productToAdd)
     }
-            
+    const quantityAdded = getProductQuantity(id)
+
     return (
     <article className="CardItem"> 
         <header className="Header">
@@ -36,7 +37,7 @@ const ItemDetail = ({ id, name, price, stock, description, img, category}) => {
             </p>
         </section>
         <footer>
-            <ItemCount onAdd={handleOnAdd} stock={stock}/>
+            { stock !==0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />: <p>No hay stock</p>} 
         </footer>
 
     </article>
