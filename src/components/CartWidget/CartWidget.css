@@ -1,25 +1,25 @@
-.CartWidget {
-    width: auto;
-    font-size: 8px;
-    background: grey;
-    border-radius: 8px;
-    flex: none;
-    display: flex;
-    order: 1;
-    align-self: center;
-    flex-grow: 0;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border: none;
-    border-style: none;
-    cursor: pointer;
-    outline: inherit;
-    font-size: medium;
+.a {
+    height: 30px;
+    width: 60px;
+    margin-right: 50px;
+}
+.b {
+    height: 30px;
+    width: 60px;
+    margin-right: -30px;
 }
 
 .CartImg {
-    margin-top: 30px;
+    background-color: grey;
+    width: 50px;
     height: 50px;
+    margin-right: 30px;
+}
+
+.numero {
+    background-color: grey;
+    color: white;
+    font-size: 30px;
+    height: 100px;
     width: 100px;
 }
