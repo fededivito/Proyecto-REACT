@@ -1,59 +1,56 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { CartContext } from '../../Context/CartContext'
-import {addDoc, collection,getDocs, query, where, documentId, writeBatch} from 'firebase/firestore'
-import { db } from "../../services/firebase"
+import { addDoc, collection, getDocs, query, where, writeBatch, documentId } from 'firebase/firestore'
+import { db } from '../../services/firebase/index'
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const Checkout = () => {
-    const [loading, setLoading] = useState(false)
-    
     const { cart, total, clearCart } = useContext(CartContext)
 
     const navigate = useNavigate()
 
-    const createOrder = async () => {
-        setLoading(true)
+    const [loading, setLoading] = useState(false)
 
-    function CheckoutForm() {
-           
-    const [nombre, setNombre] = useState('')
-    const [telefono, setTelefono] = useState('')
-    const [email, setEmail] = useState('')
-
-    const handleChange1 = event => {
-        return (
-            setNombre(event.target.value)
-        )
-    }
-
-    const handleChange2 = event => {
-        return (
-            setTelefono(event.target.value)
-        )
-    }
-
-    const handleChange3 = event => {
-        return (
-            setEmail(event.target.value)
-        )
-    }
-
+            const [nombre, setNombre] = useState('')
+            const [telefono, setTelefono] = useState('')
+            const [email, setEmail] = useState('')
+        
+            const handleChange1 = event => {
+                return (
+                    setNombre(event.target.value)
+                )
+            }
+        
+            const handleChange2 = event => {
+                return (
+                    setTelefono(event.target.value)
+                )
+            }
+        
+            const handleChange3 = event => {
+                return (
+                    setEmail(event.target.value)
+                )
+            }
+        }
+    
+        const createOrder = async () => {
         try{
-        //      const objOrder ={
-        //          buyer: {
-        //              name: 'federico di vito',
-        //              phone: '1165600221',
-        //              mail: 'fededivito14@gmail.com'
-        //          },
-        //          Items: cart,
-        //          total: total
-        //      }
+          const objOrder = {
+              buyer: {
+                  name: nombre,
+                  phone: telefono,
+                  email: email
+              },
+              Items: cart,
+              total: total
+            }
     
             const batch = writeBatch(db)
 
             const outOfStock = []
 
-            const collectionRef = collection(db, 'orders')
             const ids = cart.map(prod => prod.id)
     
             const productsRef = collection(db, 'products')
@@ -88,18 +85,13 @@ const Checkout = () => {
                 setTimeout(() => {
                     navigate('/')
                 }, 3000)
-            }
-        }catch (error){
 
+        } catch (error) {
+            console.log(error)
         } finally {
             setLoading(false)
-        }
     }
-
-    if(loading) {
-        return <h1>Se esta generando su orden...</h1>
-    }
-    
+        
     return (
         <div>
             <h1> Checkout </h1>
@@ -118,6 +110,5 @@ const Checkout = () => {
         </div>
     )
 }
-
-
+        }
 export default Checkout
