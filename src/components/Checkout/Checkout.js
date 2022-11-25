@@ -14,16 +14,40 @@ const Checkout = () => {
     const createOrder = async () => {
         setLoading(true)
 
+    function CheckoutForm() {
+           
+    const [nombre, setNombre] = useState('')
+    const [telefono, setTelefono] = useState('')
+    const [email, setEmail] = useState('')
+
+    const handleChange1 = event => {
+        return (
+            setNombre(event.target.value)
+        )
+    }
+
+    const handleChange2 = event => {
+        return (
+            setTelefono(event.target.value)
+        )
+    }
+
+    const handleChange3 = event => {
+        return (
+            setEmail(event.target.value)
+        )
+    }
+
         try{
-            const objOrder ={
-                buyer: {
-                    name: 'federico di vito',
-                    phone: '1165600221',
-                    mail: 'fededivito14@gmail.com'
-                },
-                Items: cart,
-                total: total
-            }
+        //      const objOrder ={
+        //          buyer: {
+        //              name: 'federico di vito',
+        //              phone: '1165600221',
+        //              mail: 'fededivito14@gmail.com'
+        //          },
+        //          Items: cart,
+        //          total: total
+        //      }
     
             const batch = writeBatch(db)
 
@@ -75,14 +99,25 @@ const Checkout = () => {
     if(loading) {
         return <h1>Se esta generando su orden...</h1>
     }
-
+    
     return (
         <div>
             <h1> Checkout </h1>
-            <h2> Formulario </h2>
-            <button onClick={createOrder}> Generar orden </button>
+            <div>
+                <h2> Formulario </h2>
+                <form>
+                    <h3>Nombre</h3>
+                    <input onChange={handleChange1}></input>
+                    <h3>Telefono</h3>
+                    <input onChange={handleChange2}></input>
+                    <h3>Email</h3>
+                    <input onChange={handleChange3}></input>
+                </form>
+            </div>
+            <button onClick={createOrder}> Finalizar compra </button>
         </div>
     )
 }
+
 
 export default Checkout
