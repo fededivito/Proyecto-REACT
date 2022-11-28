@@ -1,4 +1,45 @@
-.body3 {
+.titleCart {
+    text-decoration: underline;
+}
+
+.DivCart {
+    margin: auto;
+    margin-top: 100px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    color: black;
+}
+
+.DivButtonsCart {
+    margin: 20px;
+}
+
+.ButtonsCart {
+    margin: 20px;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    border-radius: 20px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+}
+
+.ButtonsCart:hover {
+    transform: scale(1.1);
+}
+
+/* .body3 {
     background: black;
     color: #fff;
     font-weight: 400;
@@ -42,4 +83,4 @@
     text-decoration: none;
     background-color: black;
     color: white;
-}
+} */
